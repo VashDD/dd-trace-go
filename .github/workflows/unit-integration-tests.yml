@@ -13,6 +13,9 @@ on:
         default: ""
 
 env:
+  # Release branches contain versions that are not published yet. Keep every
+  # matrix discovery, tidy, and test command on module-local replacements.
+  GOWORK: off
   DD_APPSEC_WAF_TIMEOUT: 1m # Increase time WAF time budget to reduce CI flakiness
   # Users may build our library with GOTOOLCHAIN=local. If they do, and our
   # go.mod file specifies a newer Go version than their local toolchain, their
